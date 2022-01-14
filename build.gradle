@@ -3,6 +3,7 @@ buildscript {
     ext {
         // AndroidX version
         androidx_lifecycle_version = '2.4.0'
+        androidx_navigation_version = '2.3.5'
 
         // DI
         dagger_hilt_version = '2.38.1'

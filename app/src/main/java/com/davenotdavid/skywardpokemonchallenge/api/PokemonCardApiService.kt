@@ -7,8 +7,8 @@ import retrofit2.http.GET
 interface PokemonCardApiService {
 
     /**
-     * TODO: Returns a max of 250 cards?
-     * TODO: What to query
+     * TODO: Returns a max of 250 cards by default?
+     * TODO: What to query besides API key?
      *
      * https://docs.pokemontcg.io/api-reference/cards/search-cards#query-parameters
      */

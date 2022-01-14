@@ -1,6 +1,6 @@
 package com.davenotdavid.skywardpokemonchallenge.api
 
-import com.davenotdavid.skywardpokemonchallenge.model.PokemonCardResponse
+import com.davenotdavid.skywardpokemonchallenge.model.PokemonCard
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -12,10 +12,9 @@ import javax.inject.Inject
 class PokemonCardApiRepository @Inject constructor(private val service: PokemonCardApiService) {
 
     @Throws(Exception::class)
-    suspend fun searchCards(): PokemonCardResponse
-    {
+    suspend fun searchCards(): List<PokemonCard> {
         return withContext(Dispatchers.IO) {
-            service.searchCardsAsync().await()
+            service.searchCardsAsync().await().data
         }
     }
 
