@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_pokemon_card"
+    app:startDestination="@+id/navigation_pokemon_cards"
+    >
+
+    <fragment
+        android:id="@+id/navigation_pokemon_cards"
+        android:name="com.davenotdavid.skywardpokemonchallenge.ui.pokemoncards.PokemonCardsFragment"
+        android:label="@string/title_pokemon_cards"
+        tools:layout="@layout/fragment_pokemon_cards"
+        >
+
+        <!-- TODO: Action to navigate to detail screen -->
+
+    </fragment>
+
+    <!-- TODO: Pokemon card detail -->
+
+</navigation>
