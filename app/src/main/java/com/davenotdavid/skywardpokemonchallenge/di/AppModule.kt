@@ -2,6 +2,7 @@ package com.davenotdavid.skywardpokemonchallenge.di
 
 import com.davenotdavid.skywardpokemonchallenge.BuildConfig
 import com.davenotdavid.skywardpokemonchallenge.api.PokemonCardApiService
+import com.davenotdavid.skywardpokemonchallenge.api.interceptor.KeyInterceptor
 import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
@@ -32,6 +33,7 @@ class AppModule {
             val loggingInterceptor = HttpLoggingInterceptor()
             loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
             clientBuilder.addInterceptor(loggingInterceptor)
+            clientBuilder.addInterceptor(KeyInterceptor())
         }
 
         return Retrofit.Builder()

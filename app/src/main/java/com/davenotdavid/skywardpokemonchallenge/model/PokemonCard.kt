@@ -9,5 +9,11 @@ data class PokemonCardResponse(val data: List<PokemonCard>,
 
 data class PokemonCard(val id: String,
                        val name: String,
-                       val superType: String
-                      /* TODO: ... and the list goes on so confirm */)
+                       // ...
+                       val images: Images
+                       // ...
+                      )
+
+// Image URLs
+data class Images(val small: String,
+                  val large: String)

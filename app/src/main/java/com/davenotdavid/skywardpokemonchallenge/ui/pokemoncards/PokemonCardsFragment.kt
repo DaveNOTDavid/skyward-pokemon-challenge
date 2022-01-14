@@ -22,7 +22,7 @@ class PokemonCardsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPokemonCardsBinding.inflate(inflater, container, false).apply {
-            viewModel = pokemonCardsViewModel
+            viewmodel = pokemonCardsViewModel
         }
         return binding.root
     }
@@ -34,7 +34,7 @@ class PokemonCardsFragment : Fragment() {
         // lifecycle binding that then updates the UI.
         binding.lifecycleOwner = this.viewLifecycleOwner
 
-        // TODO: Init
+        setupPokemonCardAdapter()
     }
 
     private fun setupPokemonCardAdapter() {

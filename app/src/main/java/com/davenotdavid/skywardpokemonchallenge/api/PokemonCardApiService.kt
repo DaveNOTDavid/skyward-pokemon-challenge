@@ -3,6 +3,7 @@ package com.davenotdavid.skywardpokemonchallenge.api
 import com.davenotdavid.skywardpokemonchallenge.model.PokemonCardResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface PokemonCardApiService {
 
@@ -13,6 +14,6 @@ interface PokemonCardApiService {
      * https://docs.pokemontcg.io/api-reference/cards/search-cards#query-parameters
      */
     @GET("cards")
-    fun searchCardsAsync(): Deferred<PokemonCardResponse>
+    fun searchCardsAsync(@Query("pageSize") pageSize: Int): Deferred<PokemonCardResponse>
 
 }

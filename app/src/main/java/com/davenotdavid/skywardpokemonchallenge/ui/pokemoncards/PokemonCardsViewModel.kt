@@ -18,7 +18,7 @@ import javax.inject.Inject
 class PokemonCardsViewModel @Inject constructor(private val cardApiRepository: PokemonCardApiRepository)
     : ViewModel() {
 
-    // TODO: Inits LiveData val to an empty list to avoid a null-pointer when data binding adapter.
+    // Inits LiveData val to an empty list to avoid a null-pointer when data binding adapter.
     private val _pokemonCards = MutableLiveData<List<PokemonCard>>().apply { value = emptyList() }
     val pokemonCards: LiveData<List<PokemonCard>> = _pokemonCards
 

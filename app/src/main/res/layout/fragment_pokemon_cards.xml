@@ -29,6 +29,7 @@
             app:items="@{viewmodel.pokemonCards}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="3"
+            tools:listitem="@layout/list_item_pokemon_card"
             />
 
     </FrameLayout>
