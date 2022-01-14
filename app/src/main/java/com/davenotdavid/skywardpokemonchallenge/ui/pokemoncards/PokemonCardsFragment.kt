@@ -1,4 +1,4 @@
-package com.davenotdavid.skywardpokemonchallenge.ui.main
+package com.davenotdavid.skywardpokemonchallenge.ui.pokemoncards
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,14 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.davenotdavid.skywardpokemonchallenge.R
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainFragment : Fragment() {
+@AndroidEntryPoint
+class PokemonCardsFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = PokemonCardsFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: PokemonCardsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +27,7 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(PokemonCardsViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
