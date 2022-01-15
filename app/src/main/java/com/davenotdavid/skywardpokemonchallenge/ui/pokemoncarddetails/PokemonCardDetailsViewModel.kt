@@ -21,13 +21,12 @@ class PokemonCardDetailsViewModel @Inject constructor(private val cardApiReposit
     private val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
 
-    fun getPokemonCardDetails() = viewModelScope.launch {
+    fun getCardDetails(cardId: String) = viewModelScope.launch {
         _dataLoading.value = true
 
         try {
-            // TODO
-//            val pokemonCards = cardApiRepository.searchCards()
-//            _pokemonCard.value = pokemonCards
+            val pokemonCards = cardApiRepository.getCardDetails(cardId)
+            _pokemonCard.value = pokemonCards
             _dataLoading.value = false
         } catch (ex: Exception) {
             Log.e(PokemonCardDetailsViewModel::class.java.name, "Exception $ex")

@@ -1,10 +1,12 @@
 package com.davenotdavid.skywardpokemonchallenge.model
 
-data class PokemonCardResponse(val data: List<PokemonCard>,
-                               val page: Int,
-                               val pageSize: Int,
-                               val count: Int,
-                               val totalCount: Int)
+data class PokemonCardsResponse(val data: List<PokemonCard>,
+                                val page: Int,
+                                val pageSize: Int,
+                                val count: Int,
+                                val totalCount: Int)
+
+data class PokemonCardDetailsResponse(val data: PokemonCard)
 
 // TODO: Add more properties as needed
 data class PokemonCard(val id: String,

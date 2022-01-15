@@ -30,11 +30,9 @@
         tools:layout="@layout/fragment_pokemon_card_details"
         >
 
-        <!-- TODO: Finalize -->
         <argument
             android:name="cardId"
             app:argType="string"
-            app:nullable="true"
             />
 
         <action

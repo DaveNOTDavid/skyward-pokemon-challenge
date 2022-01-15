@@ -17,14 +17,14 @@ import dagger.hilt.android.AndroidEntryPoint
 class PokemonCardsFragment : Fragment() {
 
     private lateinit var binding: FragmentPokemonCardsBinding
-    private val pokemonCardsViewModel by viewModels<PokemonCardsViewModel>()
+    private val viewModel by viewModels<PokemonCardsViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPokemonCardsBinding.inflate(inflater, container, false).apply {
-            viewmodel = pokemonCardsViewModel
+            viewmodel = viewModel
         }
         return binding.root
     }
@@ -51,7 +51,7 @@ class PokemonCardsFragment : Fragment() {
     }
 
     private fun setupNavigation() {
-        pokemonCardsViewModel.openCardDetailsEvent.observe(viewLifecycleOwner, EventObserver { cardId ->
+        viewModel.openCardDetailsEvent.observe(viewLifecycleOwner, EventObserver { cardId ->
             goToCardDetailScreen(cardId)
         })
     }

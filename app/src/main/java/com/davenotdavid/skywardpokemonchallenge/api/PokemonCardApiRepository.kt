@@ -16,4 +16,9 @@ class PokemonCardApiRepository @Inject constructor(private val service: PokemonC
         service.searchCardsAsync().await().data
     }
 
+    @Throws(Exception::class)
+    suspend fun getCardDetails(id: String): PokemonCard = withContext(Dispatchers.IO) {
+        service.getCardDetailsAsync(id).await().data
+    }
+
 }

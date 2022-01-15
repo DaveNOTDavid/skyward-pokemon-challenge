@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     >
 
-    <!-- TODO -->
+    <data>
 
-</FrameLayout>
+        <variable
+            name="viewmodel"
+            type="com.davenotdavid.skywardpokemonchallenge.ui.pokemoncarddetails.PokemonCardDetailsViewModel"
+            />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_default"
+        >
+
+        <ImageView
+            android:id="@+id/pokemon_card_image"
+            android:contentDescription="@string/content_desc_pokemon_card_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:imageUrl="@{viewmodel.pokemonCard.images.large}"
+            tools:src="@drawable/ic_placeholder"
+            />
+
+        <TextView
+            android:id="@+id/pokemon_card_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{viewmodel.pokemonCard.name}"
+            tools:text="Ninetales"
+            />
+
+    </LinearLayout>
+
+</layout>
