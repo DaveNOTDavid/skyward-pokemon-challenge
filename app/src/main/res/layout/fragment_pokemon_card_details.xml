@@ -14,34 +14,52 @@
 
     </data>
 
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/padding_default"
         >
 
-        <ImageView
-            android:id="@+id/pokemon_card_image"
-            android:contentDescription="@string/content_desc_pokemon_card_thumbnail"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            app:imageUrl="@{viewmodel.pokemonCard.images.large}"
-            tools:src="@drawable/ic_placeholder"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_default"
+            >
+
+            <ImageView
+                android:id="@+id/pokemon_card_image"
+                android:contentDescription="@string/content_desc_pokemon_card_thumbnail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                app:imageUrl="@{viewmodel.pokemonCard.images.large}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_placeholder"
+                />
+
+            <TextView
+                android:id="@+id/pokemon_card_name_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.pokemonCard.name}"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/pokemon_card_image"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Ninetales"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/card_details_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:progressvisibility="@{viewmodel.dataLoading}"
+            layout="@layout/include_progress_bar"
             />
 
-        <TextView
-            android:id="@+id/pokemon_card_name_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@{viewmodel.pokemonCard.name}"
-            tools:text="Ninetales"
-            />
-
-    </LinearLayout>
+    </FrameLayout>
 
 </layout>
