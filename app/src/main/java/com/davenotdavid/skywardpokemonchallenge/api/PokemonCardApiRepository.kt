@@ -12,11 +12,8 @@ import javax.inject.Inject
 class PokemonCardApiRepository @Inject constructor(private val service: PokemonCardApiService) {
 
     @Throws(Exception::class)
-    suspend fun searchCards(): List<PokemonCard> {
-        return withContext(Dispatchers.IO) {
-            // TODO: Temp of 25
-            service.searchCardsAsync(25).await().data
-        }
+    suspend fun searchCards(): List<PokemonCard> = withContext(Dispatchers.IO) {
+        service.searchCardsAsync().await().data
     }
 
 }

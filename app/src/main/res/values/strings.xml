@@ -2,6 +2,7 @@
 
     <string name="app_name">Skyward Pokemon Challenge</string>
     <string name="content_desc_pokemon_card_thumbnail">Thumbnail Image</string>
+    <string name="title_pokemon_card_details">Pokemon Card Details</string>
     <string name="title_pokemon_cards">Pokemon Cards</string>
 
 </resources>

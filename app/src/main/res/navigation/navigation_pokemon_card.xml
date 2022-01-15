@@ -14,10 +14,34 @@
         tools:layout="@layout/fragment_pokemon_cards"
         >
 
-        <!-- TODO: Action to navigate to detail screen -->
+        <action
+            android:id="@+id/action_cardsFragment_to_cardDetailFragment"
+            app:destination="@id/navigation_pokemon_card_details"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            />
 
     </fragment>
 
-    <!-- TODO: Pokemon card detail -->
+    <fragment
+        android:id="@+id/navigation_pokemon_card_details"
+        android:name="com.davenotdavid.skywardpokemonchallenge.ui.pokemoncarddetails.PokemonCardDetailsFragment"
+        android:label="@string/title_pokemon_card_details"
+        tools:layout="@layout/fragment_pokemon_card_details"
+        >
+
+        <!-- TODO: Finalize -->
+        <argument
+            android:name="cardId"
+            app:argType="string"
+            app:nullable="true"
+            />
+
+        <action
+            android:id="@+id/action_cardDetailsFragment_to_cardsFragment"
+            app:destination="@id/navigation_pokemon_cards"
+            />
+
+    </fragment>
 
 </navigation>
