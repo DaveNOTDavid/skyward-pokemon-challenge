@@ -19,12 +19,12 @@
 
     </data>
 
-    <!-- TODO: Implement `onClick()` -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_default"
+        android:onClick="@{() -> viewmodel.openCardDetails(pokemoncard.id)}"
         android:foreground="?attr/selectableItemBackground"
         tools:ignore="UnusedAttribute"
         >

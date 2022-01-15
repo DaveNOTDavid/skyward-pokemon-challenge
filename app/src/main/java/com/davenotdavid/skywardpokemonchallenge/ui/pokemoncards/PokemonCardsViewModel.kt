@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.davenotdavid.skywardpokemonchallenge.api.PokemonCardApiRepository
 import com.davenotdavid.skywardpokemonchallenge.model.PokemonCard
+import com.davenotdavid.skywardpokemonchallenge.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,8 +26,18 @@ class PokemonCardsViewModel @Inject constructor(private val cardApiRepository: P
     private val _dataLoading = MutableLiveData<Boolean>()
     val dataLoading: LiveData<Boolean> = _dataLoading
 
+    private val _openCardDetailsEvent = MutableLiveData<Event<String>>()
+    val openCardDetailsEvent: LiveData<Event<String>> = _openCardDetailsEvent
+
     init {
         getPokemonCards()
+    }
+
+    /**
+     * Called by Data Binding via [PokemonCardsAdapter].
+     */
+    fun openCardDetails(cardId: String) {
+        _openCardDetailsEvent.value = Event(cardId)
     }
 
     /**
