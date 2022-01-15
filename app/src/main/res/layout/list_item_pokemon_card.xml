@@ -24,7 +24,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:padding="@dimen/padding_default"
         android:foreground="?attr/selectableItemBackground"
         tools:ignore="UnusedAttribute"
         >
@@ -32,9 +32,11 @@
         <ImageView
             android:id="@+id/pokemon_card_image"
             android:contentDescription="@string/content_desc_pokemon_card_thumbnail"
-            android:layout_width="@dimen/pokemon_card_list_thumbnail_size"
-            android:layout_height="@dimen/pokemon_card_list_thumbnail_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
             app:imageUrl="@{pokemoncard.images.small}"
             tools:src="@drawable/ic_placeholder"
             />
@@ -44,9 +46,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
             android:text="@{pokemoncard.name}"
+            android:ellipsize="end"
+            android:maxLines="2"
             tools:text="Ninetales"
             />
 
