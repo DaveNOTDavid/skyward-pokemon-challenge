@@ -8,11 +8,19 @@ data class PokemonCardsResponse(val data: List<PokemonCard>,
 
 data class PokemonCardDetailsResponse(val data: PokemonCard)
 
-// TODO: Add more properties as needed
 data class PokemonCard(val id: String,
                        val name: String,
-                       val images: Images)
+                       val images: Images,
+                       // E.g. ["Grass", "Metal"]
+                       val types: List<String>,
+                       // E.g. "Rare Holo"
+                       val rarity: String,
+                       // E.g. "Kagemaru Himeno"
+                       val artist: String,
+                       val cardmarket: CardMarket)
 
 // Image URLs
 data class Images(val small: String,
                   val large: String)
+
+data class CardMarket(val url: String)

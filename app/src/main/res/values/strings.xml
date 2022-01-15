@@ -1,7 +1,15 @@
 <resources>
 
     <string name="app_name">Skyward Pokemon Challenge</string>
+
+    <string name="button_card_page">Card Page</string>
+
     <string name="content_desc_pokemon_card_thumbnail">Thumbnail Image</string>
+
+    <string name="pokemon_card_details_artist">Artist: %s</string>
+    <string name="pokemon_card_details_rarity">Rarity: %s</string>
+    <string name="pokemon_card_details_type">Types: %s</string>
+
     <string name="title_pokemon_card_details">Pokemon Card Details</string>
     <string name="title_pokemon_cards">Pokemon Cards</string>
 
