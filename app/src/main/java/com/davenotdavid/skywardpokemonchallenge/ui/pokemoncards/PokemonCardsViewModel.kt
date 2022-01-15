@@ -29,6 +29,14 @@ class PokemonCardsViewModel @Inject constructor(private val cardApiRepository: P
         getPokemonCards()
     }
 
+    /**
+     * Data binding with [SwipeRefreshLayout]'s public functions/callbacks to
+     * invoke [onRefresh] below.
+     */
+    fun onRefresh() {
+        getPokemonCards()
+    }
+
     private fun getPokemonCards() = viewModelScope.launch {
         _dataLoading.value = true
 
