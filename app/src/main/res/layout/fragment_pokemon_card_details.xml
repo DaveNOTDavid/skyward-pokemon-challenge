@@ -22,72 +22,87 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/padding_default"
             >
 
-            <ImageView
-                android:id="@+id/pokemon_card_image"
-                android:contentDescription="@string/content_desc_pokemon_card_thumbnail"
+            <ScrollView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                app:imageUrl="@{viewmodel.pokemonCard.images.large}"
+                android:layout_height="0dp"
+                android:padding="@dimen/padding_default"
+                android:scrollbars="vertical"
+                android:scrollbarFadeDuration="3000"
+                android:fadeScrollbars="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/ic_placeholder"
-                />
+                app:layout_constraintBottom_toTopOf="@+id/pokemon_card_page_button"
+                >
 
-            <TextView
-                android:id="@+id/pokemon_card_name_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@{viewmodel.pokemonCard.name}"
-                android:textSize="@dimen/text_size_larger"
-                app:layout_constraintTop_toBottomOf="@+id/pokemon_card_image"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="Ninetales"
-                />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
 
-            <TextView
-                android:id="@+id/pokemon_card_types_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@{@string/pokemon_card_details_type(viewmodel.pokemonCard.types.toString())}"
-                android:textSize="@dimen/text_size_medium_small"
-                app:layout_constraintTop_toBottomOf="@+id/pokemon_card_name_text"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="Types: Grass, Metal"
-                />
+                    <ImageView
+                        android:id="@+id/pokemon_card_image"
+                        android:contentDescription="@string/content_desc_pokemon_card_thumbnail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        app:imageUrl="@{viewmodel.pokemonCard.images.large}"
+                        tools:src="@drawable/ic_placeholder"
+                        />
 
-            <TextView
-                android:id="@+id/pokemon_card_rarity_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@{@string/pokemon_card_details_rarity(viewmodel.pokemonCard.rarity)}"
-                android:textSize="@dimen/text_size_medium_small"
-                app:layout_constraintTop_toBottomOf="@+id/pokemon_card_types_text"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="Rarity: Rare Holo"
-                />
+                    <TextView
+                        android:id="@+id/pokemon_card_name_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_half"
+                        android:text="@{viewmodel.pokemonCard.name}"
+                        android:textSize="@dimen/text_size_larger"
+                        tools:text="Ninetales"
+                        />
 
-            <TextView
-                android:id="@+id/pokemon_card_artist_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@{@string/pokemon_card_details_artist(viewmodel.pokemonCard.artist)}"
-                android:textSize="@dimen/text_size_medium_small"
-                app:layout_constraintTop_toBottomOf="@+id/pokemon_card_rarity_text"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="Artist: Kagemaru Himeno"
-                />
+                    <TextView
+                        android:id="@+id/pokemon_card_types_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/pokemon_card_details_type(viewmodel.pokemonCard.types.toString())}"
+                        android:textSize="@dimen/text_size_medium_small"
+                        tools:text="Types: Grass, Metal"
+                        />
+
+                    <TextView
+                        android:id="@+id/pokemon_card_rarity_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/pokemon_card_details_rarity(viewmodel.pokemonCard.rarity)}"
+                        android:textSize="@dimen/text_size_medium_small"
+                        tools:text="Rarity: Rare Holo"
+                        />
+
+                    <TextView
+                        android:id="@+id/pokemon_card_artist_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/pokemon_card_details_artist(viewmodel.pokemonCard.artist)}"
+                        android:textSize="@dimen/text_size_medium_small"
+                        tools:text="Artist: Kagemaru Himeno"
+                        />
+
+                </LinearLayout>
+
+            </ScrollView>
 
             <Button
                 android:id="@+id/pokemon_card_page_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/button_card_page"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginBottom="@dimen/margin_default"
                 android:onClick="@{() -> viewmodel.openCardPage(viewmodel.pokemonCard.cardmarket.url)}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
