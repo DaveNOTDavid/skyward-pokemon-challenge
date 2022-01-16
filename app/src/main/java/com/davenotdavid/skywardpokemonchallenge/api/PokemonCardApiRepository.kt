@@ -13,8 +13,7 @@ class PokemonCardApiRepository @Inject constructor(private val service: PokemonC
 
     @Throws(Exception::class)
     suspend fun searchCards(): List<PokemonCard> = withContext(Dispatchers.IO) {
-        // TODO: Temp hardcoding to 50 for now
-        service.searchCardsAsync(pageSize = 50).await().data
+        service.searchCardsAsync().await().data
     }
 
     @Throws(Exception::class)
